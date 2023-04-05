@@ -1,5 +1,5 @@
 import pygame
-import utils.button as button
+from utils import button        # import utils.button as button
 
 # pygame setup
 pygame.init()
@@ -7,7 +7,7 @@ pygame.init()
 width, height = 400, 400
 screen = pygame.display.set_mode((width, height)) #si vide alors plein écran
 pygame.display.set_caption("Loup-Garou") #titre de la fenêtre
-image = pygame.image.load("logo.jpg").convert()
+image = pygame.image.load("./assets/image/logo.jpg").convert()
 pygame.display.set_icon(image)
 clock = pygame.time.Clock()
 running = True
