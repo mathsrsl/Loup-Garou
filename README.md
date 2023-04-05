@@ -5,6 +5,8 @@
 
 > Le dossier `utils` sert pour ranger les fichiers python pour les fonctions génériques du jeu/interface (par exemple button.py)
 
+> Le dossier `display` permettera de stocker tous les écrans de jeu
+
 <blockquote>
 
 Les fichiers nommés `__init__.py` servent à importer tous les outils contenus dans le dossier en important que le dossier

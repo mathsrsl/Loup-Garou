@@ -19,10 +19,10 @@ class Button():
 		self.bottom_rect = pygame.Rect(pos, (width, height))
 		self.bottom_color = '#014A4A'
 		#text
-		# self.text_font = pygame.font.Font('./assets/font/mytype.ttf', 30)	#Font
+		self.text_font = pygame.font.Font('./assets/font/inconsolata.ttf', 30)	#Font
 		self.text = text
-		# self.text_surf = self.text_font.render(text, True, '#FFFFFF')
-		# self.text_rect = self.text_surf.get_rect(center=self.top_rect.center)
+		self.text_surf = self.text_font.render(text, True, '#FFFFFF')
+		self.text_rect = self.text_surf.get_rect(center=self.top_rect.center)
 
 	def change_text(self, newtext):
 		self.text_surf = self.text_font.render(newtext, True, '#FFFFFF')
