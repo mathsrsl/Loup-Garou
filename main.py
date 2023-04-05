@@ -1,5 +1,5 @@
 import pygame
-import button
+import utils.button as button
 
 # pygame setup
 pygame.init()
@@ -18,10 +18,12 @@ pygame.mouse.set_cursor(*pygame.cursors.arrow)
 def buttons_draw(screen):
     for b in buttons:
         b.draw(screen)
+        
 
 buttons = []
 button1 = button.Button('Resume', 200, 40, (width, height), 5)
 buttons.append(button1)
+
 
 while running:
     for event in pygame.event.get():
