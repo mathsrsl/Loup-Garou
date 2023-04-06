@@ -4,7 +4,8 @@ import utils, display
 def main(screen, clock, screeSize):
     running = True
 
-    #création et gestion des boutons
+    #création et gestion des boutons 
+    # --------------- a mettre dans utils et __init__ --------------
     def buttons_draw(screen):
         for b in buttons:
             b.draw(screen)

@@ -16,6 +16,8 @@ else: screen = pygame.display.set_mode(screenSize)
 #logo = pygame.image.load("assets/image/icon.png")
 
 
+
+
 pygame.display.set_caption("Loup-Garou") #titre de la fenêtre
 # pygame.mouse.set_cursor(*pygame.cursors.arrow)
 image = pygame.image.load("./assets/image/icon.svg").convert()
