@@ -1,0 +1,17 @@
+{
+    "settings": {
+        "screenSize" : {
+            "size" : [600, 400],
+            "full" : false
+        }
+    },
+    "game" : {
+        "stat" : {
+            "nbWin" : 0,
+            "nbGame" : 0,
+            "nbWolf" : 0,
+            "nbVillager" : 0,
+            "nbWitch" : 0
+        }
+    }
+}

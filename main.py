@@ -1,11 +1,18 @@
+import pygame, json
 import display, utils
-import pygame
 
 
 pygame.init()
 
-screenSize = (400, 400)
-screen = pygame.display.set_mode(screenSize) #si vide alors plein écran
+with open("data.json", "r") as f:
+        data = json.load(f)
+        screenSize = data['settings']['screenSize']['size']
+        isFullScreen = data['settings']['screenSize']['full']
+
+if isFullScreen:
+    screen = pygame.display.set_mode()
+else: screen = pygame.display.set_mode(screenSize)
+
 
 pygame.display.set_caption("Loup-Garou") #titre de la fenêtre
 # pygame.mouse.set_cursor(*pygame.cursors.arrow)

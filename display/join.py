@@ -11,7 +11,7 @@ def main(screen, clock, screeSize):
             
 
     buttons = []
-    button1 = utils.button.Button('Test 2', 200, 40, (100, 100), 5)
+    button1 = utils.button.Button('appuis sur espace', 300, 40, (150, 100), 5)
     buttons.append(button1)
 
 
@@ -21,22 +21,16 @@ def main(screen, clock, screeSize):
                 running = False
         
             elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:
-                        display.home.main(screen, clock, screeSize)
+                if event.key == pygame.K_SPACE:
+                    display.home.main(screen, clock, screeSize)
                     
         screen.fill("red")
 
         # RENDER YOUR GAME HERE
         buttons_draw(screen)
-
-        #ICIIIIIIIIIIIIIIIIIIIIII LAAAAAAAAAAAAAA
-        utils.Client()
         
         pygame.display.flip()
 
         clock.tick(60)  # limits FPS to 60
 
     pygame.quit()
-    
-# if __name__ == "__main__":
-#     main(screen, clock)

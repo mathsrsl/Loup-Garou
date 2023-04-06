@@ -1,4 +1,4 @@
-import pygame
+import pygame, json
 import utils, display
 
 def main(screen, clock, screeSize):
@@ -19,12 +19,6 @@ def main(screen, clock, screeSize):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-                
-            #test
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    display.join.main(screen, clock, screeSize)
-        
 
         screen.fill("purple")
 
