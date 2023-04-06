@@ -11,8 +11,10 @@ def main(screen, clock, screeSize):
             
 
     buttons = []
-    button1 = utils.button.Button('appuis sur espace', 300, 40, (150, 100), 5)
+    button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
     buttons.append(button1)
+    
+    logo = pygame.image.load("assets/image/logo.svg")
 
 
     while running:
@@ -27,6 +29,7 @@ def main(screen, clock, screeSize):
         
 
         screen.fill("purple")
+        screen.blit(logo, (200, 200))
 
         # RENDER YOUR GAME HERE
         buttons_draw(screen)

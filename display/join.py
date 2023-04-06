@@ -11,7 +11,7 @@ def main(screen, clock, screeSize):
             
 
     buttons = []
-    button1 = utils.button.Button('appuis sur espace', 300, 40, (150, 100), 5)
+    button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
     buttons.append(button1)
 
 
