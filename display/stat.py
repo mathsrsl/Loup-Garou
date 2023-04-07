@@ -1,17 +1,18 @@
-import pygame
+import pygame, json
 import utils, display
 
 def main(screen, clock, screeSize):
     running = True
 
-    #création et gestion des boutons
+    #création et gestion des boutons 
+    # --------------- a mettre dans utils et __init__ --------------
     def buttons_draw(screen):
         for b in buttons:
             b.draw(screen)
             
 
     buttons = []
-    button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
+    button1 = utils.button.Button('appuis sur espace', 300, 40, (150, 100), 5)
     buttons.append(button1)
 
 
@@ -19,17 +20,13 @@ def main(screen, clock, screeSize):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-        
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    display.home.main(screen, clock, screeSize)
-                    
-        screen.fill("red")
+
+        screen.fill("purple")
 
         # RENDER YOUR GAME HERE
         buttons_draw(screen)
-        
-        
+
+
         pygame.display.flip()
 
         clock.tick(60)  # limits FPS to 60

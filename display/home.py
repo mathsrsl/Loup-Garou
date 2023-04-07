@@ -11,8 +11,10 @@ def main(screen, clock, screeSize):
             
 
     buttons = []
-    button1 = utils.button.Button('Test', 200, 40, (100, 100), 5)
+    button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
     buttons.append(button1)
+    
+    logo = pygame.image.load("assets/image/icon.png")
 
 
     while running:
@@ -26,7 +28,8 @@ def main(screen, clock, screeSize):
                     display.join.main(screen, clock, screeSize)
         
 
-        screen.fill("purple")
+        screen.fill("blue")
+        screen.blit(logo, (200, 200))
 
         # RENDER YOUR GAME HERE
         buttons_draw(screen)
@@ -37,6 +40,3 @@ def main(screen, clock, screeSize):
         clock.tick(60)  # limits FPS to 60
 
     pygame.quit()
-    
-# if __name__ == "__main__":
-#     main(screen, clock)

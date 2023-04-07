@@ -2,4 +2,3 @@
 
 from .network import Client, Server
 from .button import *
-from .game import *
