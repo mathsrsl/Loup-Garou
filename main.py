@@ -22,17 +22,19 @@ y = (screenSize[1] - logo.get_height()) // 2
 # Afficher l'image pendant 2 secondes
 start_time = time.time()
 #effet zoom
-zoom, direction = 1.0, 1
+zoom, direction = 1.0, -1
 
 
-while time.time() - start_time < 1:
+while time.time() - start_time < 1.5:
     screen.fill("white") # fond blanc
-    
-    zoom += 0.0007 * direction
+    if time.time() -start_time > 0.5:
+        zoom += 0.002 * direction
+        if zoom < 0:
+            zoom =0
     
     # Redimensionner l'image en fonction du facteur de zoom
-    new_width = int(logo.get_width()/4 * zoom)
-    new_height = int(logo.get_height()/4 * zoom)
+    new_width = int(logo.get_width()/3 * zoom)
+    new_height = int(logo.get_height()/3 * zoom)
     logo_zoomed = pygame.transform.scale(logo, (new_width, new_height))
 
     # Coordonnées de l'image zoomée dans la fenêtre
