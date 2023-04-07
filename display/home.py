@@ -28,7 +28,7 @@ def main(screen, clock, screeSize):
                     display.join.main(screen, clock, screeSize)
         
 
-        screen.fill("white")
+        screen.fill("blue")
         screen.blit(logo, (200, 200))
 
         # RENDER YOUR GAME HERE
