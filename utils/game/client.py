@@ -1,6 +1,6 @@
 import utils
 
-class Player:
+class Client:
     def __init__(self,name,classe):
         self.name = name
         self.classe = classe

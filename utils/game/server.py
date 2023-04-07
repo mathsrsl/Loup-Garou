@@ -1,5 +1,5 @@
 
-class Game:
+class Server:
     def __init__(self):
 
         self.players_id = []

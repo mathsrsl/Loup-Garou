@@ -24,6 +24,8 @@ start_time = time.time()
 #effet zoom
 zoom, direction = 1.0, 1
 
+c = utils.game.Client()
+
 while time.time() - start_time < 2:
     screen.fill("white")
     
