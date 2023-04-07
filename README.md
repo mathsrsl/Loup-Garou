@@ -1,21 +1,45 @@
 # Loup-Garou
 
 ## Organisation des dossiers et fichiers
-> Le dossier `assert` sert pour les fichiers de type image, font, vidéo, son, etc...
+> Le dossier `assets` sert pour stocker les fichiers de type image, font, vidéo, son, etc...
 
-> Le dossier `utils` sert pour ranger les fichiers python pour les fonctions génériques du jeu/interface (par exemple button.py)
+> Le dossier `utils` sert pour ranger les fichiers python pour les fonctions génériques du jeu/interface (par exemple button.py, server.py, etc..)
 
-> Le dossier `display` permettera de stocker tous les écrans de jeu
+> Le dossier `display` permettera de stocker tous les écrans/fenêtre de jeu
 
 <blockquote>
 
-Les fichiers nommés `__init__.py` servent à importer tous les outils contenus dans le dossier en important que le dossier
+Les fichiers nommés `__init__.py` servent à importer toutes les fonctions/classes contenus dans le dossier.
 
 Exemple avec le dossier `utils` :
 
-```python 
-from utils import button, player
+<blockquote>
+
+Importation dans le fichier __init__.py :
+```python
+from .home import *
+from .button import *
+from .settings import *
 ```
+
+Importer les fonctions/classes dans n'importe quel fichier:
+```python 
+import utils
+```
+
+Utiliser les fonctions/classes :
+```python
+elt = utils.button.Button()
+utils.button.draw(elt)
+
+utils.settings.main(screen)
+```
+'
+</blockquote>
+'
 </blockquote>
 
-## 
+## organisation des fenêtres (dossier display)
+
+* `main.py` sert à jouer l'annimation de départ et redirige vers `home.py`
+* 
