@@ -9,7 +9,6 @@ def main(screen, clock, screeSize):
     button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
     buttonsTab.append(button1)
 
-
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
