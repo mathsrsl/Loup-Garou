@@ -14,7 +14,7 @@ def main(screen, clock, screeSize):
     button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
     buttons.append(button1)
     
-    logo = pygame.image.load("assets/image/icon.png")
+    logo = pygame.image.load("assets/image/logo.png")
 
 
     while running:

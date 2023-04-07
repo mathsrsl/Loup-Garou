@@ -24,16 +24,15 @@ start_time = time.time()
 #effet zoom
 zoom, direction = 1.0, 1
 
-c = utils.game.Client()
 
-while time.time() - start_time < 2:
-    screen.fill("white")
+while time.time() - start_time < 1:
+    screen.fill("white") # fond blanc
     
-    zoom += 0.001 * direction
+    zoom += 0.0007 * direction
     
     # Redimensionner l'image en fonction du facteur de zoom
-    new_width = int(logo.get_width() * zoom)
-    new_height = int(logo.get_height() * zoom)
+    new_width = int(logo.get_width()/4 * zoom)
+    new_height = int(logo.get_height()/4 * zoom)
     logo_zoomed = pygame.transform.scale(logo, (new_width, new_height))
 
     # Coordonnées de l'image zoomée dans la fenêtre
@@ -46,10 +45,8 @@ while time.time() - start_time < 2:
     pygame.display.flip() #rafraichir
 
 
-
-
 pygame.display.set_caption("Loup-Garou") #titre de la fenêtre
-# pygame.mouse.set_cursor(*pygame.cursors.arrow)
+pygame.mouse.set_cursor(*pygame.cursors.arrow)
 image = pygame.image.load("./assets/image/icon.svg").convert()
 pygame.display.set_icon(image)
 
