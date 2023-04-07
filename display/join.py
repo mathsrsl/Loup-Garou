@@ -28,9 +28,6 @@ def main(screen, clock, screeSize):
 
         # RENDER YOUR GAME HERE
         buttons_draw(screen)
-
-        #ICIIIIIIIIIIIIIIIIIIIIII LAAAAAAAAAAAAAA
-        utils.Client()
         
         pygame.display.flip()
 
