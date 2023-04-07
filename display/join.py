@@ -3,16 +3,11 @@ import utils, display
 
 def main(screen, clock, screeSize):
     running = True
-
-    #création et gestion des boutons
-    def buttons_draw(screen):
-        for b in buttons:
-            b.draw(screen)
             
-
-    buttons = []
+    #test
+    buttonsTab = []
     button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
-    buttons.append(button1)
+    buttonsTab.append(button1)
 
 
     while running:
@@ -27,7 +22,7 @@ def main(screen, clock, screeSize):
         screen.fill("red")
 
         # RENDER YOUR GAME HERE
-        buttons_draw(screen)
+        utils.button.buttons_draw(screen, buttonsTab)
         
         
         pygame.display.flip()

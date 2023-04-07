@@ -1,7 +1,18 @@
 import pygame
 
+"""
+mettre a jour la classe permettant de redesigner le bouton et de poouvoir détecter s'il est cliquer directement avec la classe
+faire aussi une méthode pour l'afficher
+lors de la création du bouton, on demande le texte, widht, height, position sur la page, la couleur du texte, la couleur du fonc,
+la couleur quand c'est cliqué ou hover, la font eventuelelment, la font size et éventuellement la hauteur de relief
+"""
+
 
 buttons = []
+
+def buttons_draw(screen, buttonsTab):
+        for b in buttonsTab:
+            b.draw(screen)
 
 class Button():
 	def __init__(self, text, width, height, pos, elevation):
@@ -58,7 +69,3 @@ class Button():
 		else:
 			self.dynamic_elecation = self.elevation
 			self.top_color = '#015E5E'
-
-def buttons_draw(screen):
-    for b in buttons:
-        b.draw(screen)
