@@ -13,6 +13,13 @@ if isFullScreen:
     screen = pygame.display.set_mode()
 else: screen = pygame.display.set_mode(screenSize)
 
+pygame.display.set_caption("Loup-Garou") #titre de la fenêtre
+pygame.mouse.set_cursor(*pygame.cursors.arrow)
+image = pygame.image.load("./assets/image/icon.ico").convert()
+pygame.display.set_icon(image)
+
+clock = pygame.time.Clock()
+
 
 #affichage du logo
 logo = pygame.image.load("assets/image/icon.png")
@@ -27,6 +34,7 @@ zoom, direction = 1.0, -1
 
 while time.time() - start_time < 1.5:
     screen.fill("white") # fond blanc
+    
     if time.time() -start_time > 0.5:
         zoom += 0.002 * direction
         if zoom < 0:
@@ -45,13 +53,5 @@ while time.time() - start_time < 1.5:
     screen.blit(logo_zoomed, (x_zoomed, y_zoomed))
     
     pygame.display.flip() #rafraichir
-
-
-pygame.display.set_caption("Loup-Garou") #titre de la fenêtre
-pygame.mouse.set_cursor(*pygame.cursors.arrow)
-image = pygame.image.load("./assets/image/icon.svg").convert()
-pygame.display.set_icon(image)
-
-clock = pygame.time.Clock()
-
+    
 display.home.main(screen, clock, screenSize)
