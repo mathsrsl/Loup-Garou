@@ -15,7 +15,7 @@ else: screen = pygame.display.set_mode(screenSize)
 
 #logo = pygame.image.load("assets/image/icon.png")
 
-
+#
 
 
 pygame.display.set_caption("Loup-Garou") #titre de la fenêtre
