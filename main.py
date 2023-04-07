@@ -35,9 +35,9 @@ while time.time() - start_time < 2:
     logo_zoomed = pygame.transform.scale(logo, (new_width, new_height))
 
     # Coordonnées de l'image zoomée dans la fenêtre
-    x_zoomed = (screenSize[0] - new_width) // 8
-    y_zoomed = (screenSize[0] - new_height) // 8
-
+    x_zoomed = (screenSize[0] - new_width) // 2
+    y_zoomed = (screenSize[0] - new_height) // 2
+    
     # Afficher l'image zoomée
     screen.blit(logo_zoomed, (x_zoomed, y_zoomed))
     
