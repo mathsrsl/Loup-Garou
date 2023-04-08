@@ -25,9 +25,6 @@ clock = pygame.time.Clock()
 
 #affichage du logo
 logo = pygame.image.load("assets/image/logo.png")
-#coordonnées de l'image
-x = (screenSize[0] - logo.get_width()) // 2
-y = (screenSize[1] - logo.get_height()) // 2
 # Afficher l'image pendant 2 secondes
 start_time = time.time()
 #effet zoom

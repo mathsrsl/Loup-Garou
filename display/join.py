@@ -1,7 +1,7 @@
 import pygame
 import utils, display
 
-def main(screen, clock, screeSize):
+def main(screen, clock, screenSize):
     running = True
             
     #test
@@ -17,9 +17,9 @@ def main(screen, clock, screeSize):
         
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    display.home.main(screen, clock, screeSize)
+                    display.home.main(screen, clock, screenSize)
                     
-        screen.fill("red")
+        screen.fill("grey")
 
         # RENDER YOUR GAME HERE
         utils.button.buttons_draw(screen, buttonsTab)
