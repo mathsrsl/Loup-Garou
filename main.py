@@ -11,7 +11,9 @@ with open("data.json", "r") as f:
 
 if isFullScreen:
     screen = pygame.display.set_mode()
-else: screen = pygame.display.set_mode(screenSize)
+    screenSize[0], screenSize[1] = screen.get_size()
+else:
+    screen = pygame.display.set_mode(screenSize)
 
 pygame.display.set_caption("Loup-Garou") #titre de la fenêtre
 pygame.mouse.set_cursor(*pygame.cursors.arrow)
@@ -41,13 +43,13 @@ while time.time() - start_time < 1.5:
             zoom =0
     
     # Redimensionner l'image en fonction du facteur de zoom
-    new_width = int(logo.get_width()/3 * zoom)
-    new_height = int(logo.get_height()/3 * zoom)
+    new_width = int(logo.get_width() * zoom)
+    new_height = int(logo.get_height() * zoom)
     logo_zoomed = pygame.transform.scale(logo, (new_width, new_height))
 
     # Coordonnées de l'image zoomée dans la fenêtre
     x_zoomed = (screenSize[0] - new_width) // 2
-    y_zoomed = (screenSize[0] - new_height) // 2
+    y_zoomed = (screenSize[1] - new_height) // 2
     
     # Afficher l'image zoomée
     screen.blit(logo_zoomed, (x_zoomed, y_zoomed))
