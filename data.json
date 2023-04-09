@@ -1,7 +1,7 @@
 {
     "settings": {
         "screenSize" : {
-            "size" : [700, 700],
+            "size" : [1000, 600],
             "full" : false
         }
     },

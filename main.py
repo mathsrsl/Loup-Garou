@@ -31,7 +31,7 @@ start_time = time.time()
 zoom, direction = 1.0, -1
 
 
-while time.time() - start_time < 1.5:
+while time.time() - start_time < 0: #1.5 mais 0 pr plus rapide pr le moment
     screen.fill("white") # fond blanc
     
     if time.time() -start_time > 0.5:
