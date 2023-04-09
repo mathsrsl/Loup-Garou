@@ -18,6 +18,8 @@ def main(screen, clock, screenSize):
     ySettingsButton = screenSize[1] - (screenSize[1] - 20)
         
     while running:
+        mouse = pygame.mouse.get_pos()
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -42,7 +44,6 @@ def main(screen, clock, screenSize):
         #affichage du bouton des statistiques
         #affichage des boutons de jeu
 
-        mouse = pygame.mouse.get_pos()
         pygame.display.flip()
 
         clock.tick(120)  # limits FPS to 60
