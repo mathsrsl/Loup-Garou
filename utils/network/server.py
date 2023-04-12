@@ -7,23 +7,25 @@ def listen_for_client(cs, client_sockets, separator_token):
    Whenever a message is received, broadcast it to all other connected clients
    """
    while True:
-       try:
+        try:
            # keep listening for a message from `cs` socket
            msg = cs.recv(1024).decode()
-       except Exception as e:
+           msg = msg.replace(separator_token, ": ")
+        except Exception as e:
            # client no longer connected
            # remove it from the set
            print(f"[!] Error: {e}")
            client_sockets.remove(cs)
-       else:
+       
            # if we received a message, replace the <SEP> 
            # token with ": " for nice printing
-           msg = msg.replace(separator_token, ": ")
-       # iterate over all connected sockets
-       for client_socket in client_sockets:
+           
+        # iterate over all connected sockets
+        for client_socket in client_sockets:
            # and send the message
            client_socket.send(msg.encode())
-       print(f'{msg}\n')
+        if not msg is None: 
+            print(f'message: {msg}\n')
 
 class Server:
     def __init__(self, host, port):
@@ -63,7 +65,7 @@ class Server:
         # close server socket
         self.s.close()
 
-#s = Server('localhost', 8888)
-#
-#s.start()
+s = Server('localhost', 8888)
+
+s.start()
 

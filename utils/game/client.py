@@ -5,8 +5,9 @@ class Client:
         self.name = name
         self.classe = classe
         self.statue = utils.game.PlayerStatue.AWAKE
+        self.sc = utils.network.Client(self.name, "localhost", 8888)
         
-            
+        self.sc.start()
             
     def getName(self):
         return self.name
@@ -16,4 +17,7 @@ class Client:
         return self.statue
     def setStatue(self,statue):
         self.statue = statue
+
+    def vote(player_id, action):
+
 
