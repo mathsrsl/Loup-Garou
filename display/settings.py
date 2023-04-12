@@ -3,12 +3,6 @@ import utils, display
 
 def main(screen, clock, screenSize):
     running = True
-            
-    #test
-    buttonsTab = []
-    button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
-    buttonsTab.append(button1)
-
 
     while running:
         for event in pygame.event.get():
@@ -19,11 +13,7 @@ def main(screen, clock, screenSize):
                 if event.key == pygame.K_SPACE:
                     display.home.main(screen, clock, screenSize)
                     
-        screen.fill("grey")
-
-        # RENDER YOUR GAME HERE
-        utils.button.buttons_draw(screen, buttonsTab)
-        
+        screen.fill("blue")
         
         pygame.display.flip()
 

@@ -1,42 +1,51 @@
 import pygame
 import utils, display
 
-def main(screen, clock, screeSize):
+def main(screen, clock, screenSize):
     running = True
 
-    #création et gestion des boutons
-    def buttons_draw(screen):
-        for b in buttons:
-            b.draw(screen)
-            
-
-    buttons = []
-    button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
-    buttons.append(button1)
+    #test
+    # buttonsTab = []
+    # button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
+    # buttonsTab.append(button1)
     
-    logo = pygame.image.load("assets/image/icon.png")
-
-
+    logo = pygame.image.load('assets/image/logo_0.9.png')
+    xLogo = (screenSize[0] - int(logo.get_width())) // 2
+    yLogo = (screenSize[1] - int(logo.get_height())) // 5
+    
+    settingsButton = pygame.image.load('assets/image/icon/settings.png')
+    xSettingsButton = screenSize[0] - settingsButton.get_width() -20
+    ySettingsButton = screenSize[1] - (screenSize[1] - 20)
+        
     while running:
+        mouse = pygame.mouse.get_pos()
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            
+            if event.type == pygame.MOUSEBUTTONDOWN: #si touche préssée
+                if pygame.mouse.get_pressed()[0]: #si clique gauche
+                    if xSettingsButton <= mouse[0] <= xSettingsButton + settingsButton.get_width() and ySettingsButton <= mouse[1] <= ySettingsButton + settingsButton.get_height():
+                        utils.clickEffect.zoom(screen, settingsButton, (xSettingsButton, ySettingsButton))
+                        display.settings.main(screen, clock, screenSize)
                 
             #test
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    display.join.main(screen, clock, screeSize)
+                    display.join.main(screen, clock, screenSize)
         
 
-        screen.fill("blue")
-        screen.blit(logo, (200, 200))
-
-        # RENDER YOUR GAME HERE
-        buttons_draw(screen)
-
+        screen.fill("purple")   
+        
+        screen.blit(logo, (xLogo, yLogo)) #affichage du logo
+        
+        screen.blit(settingsButton, (xSettingsButton, ySettingsButton)) #affichage du bouton paramètre
+        #affichage du bouton des statistiques
+        #affichage des boutons de jeu
 
         pygame.display.flip()
 
-        clock.tick(60)  # limits FPS to 60
+        clock.tick(120)  # limits FPS to 60
 
     pygame.quit()
