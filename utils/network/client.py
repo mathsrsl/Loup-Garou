@@ -4,11 +4,6 @@ from threading import Thread
 from datetime import datetime
 import time
 
-
-
-
-
-
 class Client:
     def __init__(self, name, host, port):
         self.name = name
@@ -69,5 +64,3 @@ while True:
     c.send("tutu")
 
     time.sleep(1)
-
-
