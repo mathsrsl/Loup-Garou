@@ -65,7 +65,7 @@ class Server:
         # close server socket
         self.s.close()
 
-s = Server('localhost', 8888)
+# s = Server('localhost', 8888)
 
-s.start()
+# s.start()
 

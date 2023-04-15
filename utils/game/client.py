@@ -19,5 +19,5 @@ class Client:
         self.statue = statue
 
     def vote(player_id, action):
-
+        """"""
 
