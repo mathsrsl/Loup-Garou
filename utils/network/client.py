@@ -51,16 +51,16 @@ class Client:
     def send(self, message):
         self.message = [message]
 
-c = Client("toto", "localhost", 8888)
+# c = Client("toto", "localhost", 8888)
 
-c.start()
+# c.start()
 
-while True:
+# while True:
     
-    c.send("toto")
+#     c.send("toto")
 
-    time.sleep(1)
+#     time.sleep(1)
 
-    c.send("tutu")
+#     c.send("tutu")
 
-    time.sleep(1)
+#     time.sleep(1)
