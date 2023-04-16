@@ -7,15 +7,12 @@ lors de la création du bouton, on demande le texte, widht, height, position sur
 la couleur quand c'est cliqué ou hover, la font eventuelelment, la font size et éventuellement la hauteur de relief
 """
 
-
-buttons = []
-
-def buttons_draw(screen, buttonsTab):
+def buttons_draw(screen, buttonsTab): #draws all the buttons in the list
     for b in buttonsTab:
         b.draw(screen)
             
 def isClicked(screen, button):
-	
+	#ou methode
     return False
 
 class Button():

@@ -4,10 +4,8 @@ import utils, display
 def main(screen, clock, screenSize):
     running = True
 
-    #test-----
-    buttonsTab = []
+    #test-----]
     button1 = utils.button.Button('appuis sur espace', (300, 200), 300)
-    buttonsTab.append(button1)
     #---------
     
     logo = pygame.image.load('assets/image/logo_0.9.png')
@@ -41,7 +39,7 @@ def main(screen, clock, screenSize):
         screen.blit(logo, (xLogo, yLogo)) #affichage du logo
         
         #test
-        utils.button.buttons_draw(screen, buttonsTab)
+        button1.draw(screen)
         
         screen.blit(settingsButton, (xSettingsButton, ySettingsButton)) #affichage du bouton paramètre
         #affichage du bouton des statistiques
