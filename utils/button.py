@@ -11,8 +11,8 @@ la couleur quand c'est cliqué ou hover, la font eventuelelment, la font size et
 buttons = []
 
 def buttons_draw(screen, buttonsTab):
-        for b in buttonsTab:
-            b.draw(screen)
+    for b in buttonsTab:
+        b.draw(screen)
             
 def isClicked(screen, button):
 	
