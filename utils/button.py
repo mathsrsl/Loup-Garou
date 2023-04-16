@@ -24,6 +24,7 @@ class Button():
             ('#6C1FAD', '#290B47', '#9F2DFF')   
         ]
         self.pressed = False
+        self.click = False
         self.height = height
         self.width = width
         self.elevation = elevation
@@ -81,9 +82,9 @@ class Button():
         self.check_click()
         
     def check_click(self):
-        mouse = pygame.mouse.get_pos()
+        self.mouse = pygame.mouse.get_pos()
         # print(mouse) #---------------------------------------
-        if self.top_rect.collidepoint(mouse):
+        if self.top_rect.collidepoint(self.mouse):
             self.top_color = self.color[2]                
             if pygame.mouse.get_pressed()[0]:
                 self.dynamic_elecation = 0
@@ -92,8 +93,10 @@ class Button():
             else:
                 self.dynamic_elecation = self.elevation
                 if self.pressed == True:
+                    # pygame.time.delay(150)
                     self.pressed = False
                     self.change_text(self.text)
+                    self.click = True
                     
         else:
             self.dynamic_elecation = self.elevation

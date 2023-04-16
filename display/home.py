@@ -1,4 +1,4 @@
-import pygame
+import pygame, time
 import utils, display
 
 def main(screen, clock, screenSize):
@@ -33,7 +33,11 @@ def main(screen, clock, screenSize):
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     display.join.main(screen, clock, screenSize)
-
+            
+        if button1.click: #click button test
+            button1.click = False
+            display.join.main(screen, clock, screenSize)
+        
         screen.fill("purple")   
         
         screen.blit(logo, (xLogo, yLogo)) #affichage du logo
