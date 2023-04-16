@@ -6,7 +6,7 @@ def main(screen, clock, screenSize):
             
     #test
     buttonsTab = []
-    button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
+    button1 = utils.button.Button('appuis sur espace',(200, 100), 300, 40, elevation=7, color=2, fontSize=15)
     buttonsTab.append(button1)
 
 

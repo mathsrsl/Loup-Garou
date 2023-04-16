@@ -4,10 +4,11 @@ import utils, display
 def main(screen, clock, screenSize):
     running = True
 
-    #test
-    # buttonsTab = []
-    # button1 = utils.button.Button('appuis sur espace', 300, 40, (200, 100), 5)
-    # buttonsTab.append(button1)
+    #test-----
+    buttonsTab = []
+    button1 = utils.button.Button('appuis sur espace', (300, 200), 300)
+    buttonsTab.append(button1)
+    #---------
     
     logo = pygame.image.load('assets/image/logo_0.9.png')
     xLogo = (screenSize[0] - int(logo.get_width())) // 2
@@ -34,11 +35,13 @@ def main(screen, clock, screenSize):
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     display.join.main(screen, clock, screenSize)
-        
 
         screen.fill("purple")   
         
         screen.blit(logo, (xLogo, yLogo)) #affichage du logo
+        
+        #test
+        utils.button.buttons_draw(screen, buttonsTab)
         
         screen.blit(settingsButton, (xSettingsButton, ySettingsButton)) #affichage du bouton paramètre
         #affichage du bouton des statistiques
