@@ -18,7 +18,12 @@ def isClicked(screen, button):
 class Button():
     def __init__(self, text, pos, width, height=70, elevation=8, idColor=0, fontSize=30, border_radius=20):
         #Core attributes 
-        self.bgColor = [('#000000', '#A7A7A7', '#414141'), ('#1997EA', '#101278', '#38B0FF'), ('#6C1FAD', '#290B47', '#9F2DFF')]
+        self.bgColor = [
+            ('#000000', '#A7A7A7', '#414141'), 
+            ('#1997EA', '#101278', '#38B0FF'), 
+            ('#6C1FAD', '#290B47', '#9F2DFF')
+            
+        ]
         self.pressed = False
         self.elevation = elevation
         self.dynamic_elecation = elevation
