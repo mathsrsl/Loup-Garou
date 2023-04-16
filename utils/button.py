@@ -21,7 +21,7 @@ def isClicked(screen, button):
 class Button():
 	def __init__(self, text, pos, width, height=70, elevation=8, color=1, fontSize=30):
 		#Core attributes 
-		self.bgColor = [('#1997EA', '#101278', '#18A3FF', '#262ADC'), ('#6C1FAD', '#290B47', '#9F2DFF', '#52158F')]
+		self.bgColor = [('#1997EA', '#101278', '#38B0FF'), ('#6C1FAD', '#290B47', '#9F2DFF')]
 		self.pressed = False
 		self.elevation = elevation
 		self.dynamic_elecation = elevation
@@ -55,7 +55,7 @@ class Button():
 
 	def draw(self, screen):
 		# elevation logic 
-		self.top_rect.y = self.original_y_pos - self.dynamic_elecation
+		self.top_rect.y = self.original_y_pos + self.dynamic_elecation
 		self.text_rect.center = self.top_rect.center 
 
 		self.bottom_rect.midtop = self.top_rect.midtop

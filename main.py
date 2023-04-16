@@ -31,7 +31,11 @@ start_time = time.time()
 zoom, direction = 1.0, -1
 
 
-while time.time() - start_time < 1.5 : #1.5 mais 0 pr plus rapide pr le moment
+while time.time() - start_time < 1.5: #1.5
+    for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
+                display.home.main(screen, clock, screenSize)
+    
     screen.fill("white") # fond blanc
     
     if time.time() -start_time > 0.5:
