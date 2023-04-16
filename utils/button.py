@@ -16,7 +16,7 @@ def isClicked(screen, button):
     return False
 
 class Button():
-    def __init__(self, text, pos, width, height=70, elevation=5, idColor=0, fontSize=25, border_radius=20):
+    def __init__(self, text, pos, width, height=70, elevation=5, idColor=0, fontSize=25, border_radius=20, pawDisplaying=True):
         #Core attributes 
         self.bgColor = [
             ('#000000', '#A7A7A7', '#414141'), 
@@ -33,6 +33,7 @@ class Button():
         self.idColor = idColor
         self.fontSize = fontSize
         self.border_radius = border_radius
+        self.pawDisplaying = pawDisplaying
         
         #button color
         if self.idColor-1 > len(self.bgColor):
@@ -71,10 +72,11 @@ class Button():
         pygame.draw.rect(screen, self.top_color, self.top_rect, border_radius=self.border_radius)
         screen.blit(self.text_surf, self.text_rect)
         
-        self.pawImage = pygame.image.load(f'./assets/image/icon/patte_{self.color[3]}.png')
-        self.xPositionImage = self.original_x_pos + self.width - self.pawImage.get_size()[0] - self.dynamic_elecation
-        self.yPositionImage = self.original_y_pos + self.height - self.pawImage.get_size()[1] - self.dynamic_elecation
-        screen.blit(self.pawImage, (self.xPositionImage, self.yPositionImage))
+        if self.pawDisplaying:
+            self.pawImage = pygame.image.load(f'./assets/image/icon/patte_{self.color[3]}.png')
+            self.xPositionImage = self.original_x_pos + self.width - self.pawImage.get_size()[0] - self.dynamic_elecation
+            self.yPositionImage = self.original_y_pos + self.height - self.pawImage.get_size()[1] - self.dynamic_elecation
+            screen.blit(self.pawImage, (self.xPositionImage, self.yPositionImage))
         
         self.check_click()
         
