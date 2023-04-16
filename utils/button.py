@@ -1,10 +1,7 @@
 import pygame
 
 """
-mettre a jour la classe permettant de redesigner le bouton et de pouvoir détecter s'il est cliquer directement avec la classe
-faire aussi une méthode pour l'afficher
-lors de la création du bouton, on demande le texte, widht, height, position sur la page, la couleur du texte, la couleur du fonc,
-la couleur quand c'est cliqué ou hover, la font eventuelelment, la font size et éventuellement la hauteur de relief
+reste à faire : la couleur du texte quand cliqué ou après cliqué
 """
 
 def buttons_draw(screen, buttonsTab): #draws all the buttons in the list
@@ -16,7 +13,7 @@ def isClicked(screen, button):
     return False
 
 class Button():
-    def __init__(self, text, pos, width, height=70, elevation=5, idColor=0, fontSize=25, border_radius=20, pawDisplaying=True):
+    def __init__(self, text, pos, width, height=70, elevation=5, idColor=0, fontSize=25, border_radius=20, pawDisplaying=True, colorText = '#FFFFFF'):
         #Core attributes 
         self.bgColor = [
             ('#000000', '#A7A7A7', '#414141'), 
@@ -35,6 +32,7 @@ class Button():
         self.fontSize = fontSize
         self.border_radius = border_radius
         self.pawDisplaying = pawDisplaying
+        self.colorText = colorText
         
         #button color
         if self.idColor-1 > len(self.bgColor):
@@ -53,7 +51,7 @@ class Button():
         #text
         self.text_font = pygame.font.Font('./assets/font/inter/static/Inter-Black.ttf', self.fontSize)	#Font
         self.text = text
-        self.text_surf = self.text_font.render(text, True, '#FFFFFF')
+        self.text_surf = self.text_font.render(text, True, self.colorText)
         self.text_rect = self.text_surf.get_rect(center=self.top_rect.center)
     
     def change_text(self, newtext):
