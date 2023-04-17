@@ -92,9 +92,6 @@ button_confirmer = utils.button.Button('confirmer', (200, 300), 250)
 
 #créer un bouton personnalisé (les paramètres optionnels):
 button_confirmer = utils.button.Button('confirmer',(200, 100), 300, height=40, clickable=False, elevation=7, idColor=2, fontSize=20, borderRadius=15, pawDisplaying=False, colorText='#F3A8AF')
-
-#afficher le bouton:
-button_confirmer.draw(screen)
 ```
 
 Étant donné qu'il y a beaucoup de paramètres optionnels, il est conseillé d'écrire le nom du paramètre avant sa valeur (Exemple : `height=40` au lieu de `40`). Cela permettra de s'y retrouver plus facilement. De plus, cela est nécessaire si les paramètres ne sont pas indiqués dans l'ordre souhaité par la classe.
@@ -105,11 +102,22 @@ button_confirmer.draw(screen)
 Les méthodes serviront pour modifier les propriétés et/ou apparence d'un bouton pour le bon déroulement du jeu.
 <blockquote>
 
+**Afficher le bouton sur la page**
+
+[description]
+
+Exemple :
+```python
+button_confirmer.draw(screen)
+```
+</blockquote>
+<blockquote>
+
 **Vérifier si le bouton est cliqué**
 
 [description]
 
-Exemple:
+Exemple :
 ```python
 #code
 ```
@@ -131,7 +139,7 @@ button_confirmer.set_text('envoyé')
 
 [description]
 
-Exemple:
+Exemple :
 ```python
 #code
 ```
@@ -142,7 +150,7 @@ Exemple:
 
 [description]
 
-Exemple:
+Exemple :
 ```python
 #code
 ```
