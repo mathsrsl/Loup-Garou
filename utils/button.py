@@ -1,15 +1,28 @@
-import pygame
+import pygame, re
 
 def buttons_draw(screen, buttonsTab): #draws all the buttons in the list
     for b in buttonsTab:
         b.draw(screen)
-            
-def isClicked(screen, button):
-	#ou methode
-    return False
 
 class Button():
+    """Class allowing to build and display a customizable button"""
     def __init__(self, text, pos, width, height=70, elevation=5, clickable=True, idColor=1, fontSize=25, border_radius=20, pawDisplaying=True, colorText = '#FFFFFF'):
+        """Initializes the values needed to build the button
+
+		Args:
+			text (str): the text inside the button
+			pos (tuple): (tuple of two int) the position X and Y of the upper left corner of the button
+			width (int): the width of the button
+			height (int, optional): the height of the button. Defaults to 70.
+			elevation (int, optional): the raising of the shadow button. Defaults to 5.
+			clickable (bool, optional): the button is clickable or not. Defaults to True.
+			idColor (int, optional): the color id of the button color group (0: black/white; 1: blue; 2: purple). Defaults to 1.
+			fontSize (int, optional): the font size of the text. Defaults to 25.
+			border_radius (int, optional): the degree of rounding of the button. Defaults to 20.
+			pawDisplaying (bool, optional): display or not a wolf's paw in the lower right corner of the button. Defaults to True.
+			colorText (str, optional): choose the colour of the button text. Defaults to '#FFFFFF'.
+		"""
+  
         #Core attributes 
         self.bgColor = [
             ('#000000', '#A7A7A7', '#616161'), 
@@ -31,9 +44,15 @@ class Button():
         self.border_radius = border_radius
         self.pawDisplaying = pawDisplaying
         self.colorText = colorText
+        self.oldColor = colorText
         self.text = text
         
     def draw(self, screen):
+        """build and display the button
+
+		Args:
+			screen (_pygame.Surface_): an instance of the class `pygame.Surface`
+		"""
         self.screen = screen
         
         #button color
@@ -79,8 +98,11 @@ class Button():
         self.check_click()
         
     def check_click(self):
+        """
+        Check the click of the button and animate its own when it's pressed.
+        Does not require any arguments as it is an internal method.
+        """
         self.mouse = pygame.mouse.get_pos()
-        # print(mouse) #---------------------------------------
         if self.clickable:
             if self.top_rect.collidepoint(self.mouse):
                 self.top_color = self.color[2]                
@@ -101,20 +123,56 @@ class Button():
                 self.top_color = self.color[0]
     
     def isClicked(self):
+        """Check the click of the button
+
+		Returns:
+			_bool_: returns True if the button was pressed
+		"""
         if self.click == True:
             self.click = False
             return True
-        else: return False
+        else: 
+            return False
     
     def set_text(self, newText):
-        self.text = newText
-        self.text_surf = self.text_font.render(self.text, True, self.colorText)
+        """Changes a new text inside the button
+
+		Args:
+			newText (str): the new text chain
+   
+		Raises:
+			ValueError: The value must be a string ("Hello World!")
+		"""
+        if isinstance(newText, str):
+            self.text = newText
+            self.text_surf = self.text_font.render(self.text, True, self.colorText)
+        else:
+            raise ValueError("The value must be a string")
     
     def set_color_text(self, newColorText):
+        """Changes the text colour of the button  
+
+		Args:
+			newColorText (str): string of the new hexadecimal colour. Example: '#FFFFFF'
+   
+		Raises:
+			ValueError: the colour must be in hexadecimal format ("#XXXXXX")
+		"""
+        if not re.match(r'^#[0-9A-Fa-f]{6}$', newColorText):
+            raise ValueError("Invalid hexadecimal colour")
+        
         self.colorText = newColorText
         self.text_surf = self.text_font.render(self.text, True, self.colorText)
     
     def set_clickable(self, value):
+        """Changes the property of the ability to click on the button
+
+		Args:
+			value (bool: the button is clickable or not
+
+		Raises:
+			ValueError: The value must be a boolean (True of False)
+		"""
         if isinstance(value, bool):
             if self.clickable == True and value == False:
                 self.oldColor = self.colorText
@@ -123,4 +181,4 @@ class Button():
                 self.colorText = self.oldColor
             self.clickable = value     
         else:
-            raise ValueError("La valeur doit être un booléen")
+            raise ValueError("The value must be a boolean")

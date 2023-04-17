@@ -27,7 +27,9 @@ def main(screen, clock, screenSize):
                 if event.key == pygame.K_3:
                     button2.set_clickable(False)
                 if event.key == pygame.K_4:
-                    button2.set_clickable(True)                    
+                    button2.set_clickable(True)
+                if event.key == pygame.K_5:
+                    button1.set_clickable(True)                     
                     
         screen.fill("grey")
 
