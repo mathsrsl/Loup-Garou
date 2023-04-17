@@ -48,7 +48,7 @@ utils.settings.main(screen)
 <blockquote>
 
 ## La classe `Button`
-description
+[description]
 <blockquote>
 
 ## Créer un buouton
@@ -58,24 +58,33 @@ description
 Exemple
 
 ```python
+#code
 ```
 </blockquote>
-
-<blockquote>
 
 ## Utiliser les méthodes
 
 <blockquote>
 
-##Méthode de couleur
+**Méthode de couleur**
 
-<blockquote>
+[description]
 
 Exemple:
 ```python
+#code
 ```
 </blockquote>
-</blockquote>
+<blockquote>
+
+**Méthode de text**
+
+[description]
+
+Exemple:
+```python
+#code
+```
 </blockquote>
 </blockquote>
 </blockquote>
