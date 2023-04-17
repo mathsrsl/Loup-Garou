@@ -183,3 +183,11 @@ class Button():
             self.clickable = value     
         else:
             raise ValueError("The value must be a boolean")
+        
+    def set_color(self, id):
+        """Changes the the color id
+
+		Args:
+			id (int): id of the pre-existing colour group
+		"""
+        self.idColor = id

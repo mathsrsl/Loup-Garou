@@ -1,7 +1,30 @@
+import importlib, pip
+
+#--- installation of missing libraries ---
+required_libraries = []
+
+#pygame
+try:
+    importlib.import_module('pygame')
+    print('The pygame library is installed.')
+except ImportError:
+    required_libraries.append('pygame')
+    
+#screeninfo
+try:
+    importlib.import_module('screeninfo')
+    print('The screeninfo library is installed.')
+except ImportError:
+    required_libraries.append('screeninfo')
+    
+#download library
+for library in required_libraries:
+    pip.main(['install', library])
+
 import pygame, json, time
 import display, utils
 
-
+#--- basic game settings for the reload of game ---
 pygame.init()
 
 with open("data.json", "r") as f:

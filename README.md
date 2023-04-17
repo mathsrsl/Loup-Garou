@@ -1,5 +1,20 @@
 # Loup-Garou
 
+## Librairies nécessaires
+
+>Pour information, les librairies s'installent normalement toutes seules au premier démarrage du jeu
+
+**Liste des librairies nécessaires**
+
+* `pygame` :
+```
+python -m pip install pygame
+```
+* `screeninfo` :
+```
+python -m pip install screeninfo
+```
+
 ## Organisation des dossiers et fichiers
 > Le dossier `assets` sert pour stocker les fichiers de type image, font, vidéo, son, etc...
 
@@ -161,5 +176,22 @@ button_confirmer.set_clickable(True)
 button_confirmer.set_clickable(False)
 ```
 </blockquote>
+<blockquote>
+
+**Modifier l'id du groupe de couleurs pré-éxistantes**
+
+La méthode `set_color` permet de changer l'id du groupe de couleurs pré-éxistantes. Cela permet donc de modifier la couleur du bouton après l'avoir créer.
+
+Exemple :
+```python
+button_confirmer.set_color(2)
+
+```
 </blockquote>
 </blockquote>
+</blockquote>
+
+
+
+
+set_color

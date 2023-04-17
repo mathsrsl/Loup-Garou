@@ -1,17 +1,1 @@
-{
-    "settings": {
-        "screenSize" : {
-            "size" : [1000, 600],
-            "full" : false
-        }
-    },
-    "game" : {
-        "stat" : {
-            "nbWin" : 0,
-            "nbGame" : 0,
-            "nbWolf" : 0,
-            "nbVillager" : 0,
-            "nbWitch" : 0
-        }
-    }
-}
+{"settings": {"screenSize": {"size": [1000, 600], "full": false}}, "game": {"stat": {"nbWin": 0, "nbGame": 0, "nbWolf": 0, "nbVillager": 0, "nbWitch": 0}}}
