@@ -56,7 +56,13 @@ def main(screen, clock, screenSize):
     button_fullScreen = utils.button.Button("Full Screen", (button_fullScreen_x, button_fullScreen_y), 200)
     
     button_back = pygame.image.load('assets/image/icon/settings.png')
-
+    
+    # creation of a text in case of non conformity of the screen
+    allCompatible = True
+    font = pygame.font.Font('./assets/font/inter/static/Inter-Regular.ttf', 15)
+    text = font.render("(Votre écran n'est pas compatible avec les dimensions inscrites sur les boutons grisés)", True, (194, 194, 194))
+    text_width = text.get_rect().width
+    
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -83,6 +89,21 @@ def main(screen, clock, screenSize):
             button_1280.set_color(2)
         elif screenSize[0] == 1920:
             button_1920.set_color(2)
+            
+        #disables buttons whose size is not compatible with the screen
+        if screen_width <= 1920 or screen_height <= 1080:
+            allCompatible = False
+            button_1920.set_clickable(False)
+        if screen_width <= 1280 or screen_height <= 700:
+            allCompatible = False
+            button_1280.set_clickable(False)
+        if screen_width <= 1000 or screen_height <= 600:
+            allCompatible = False
+            button_1000.set_clickable(False)
+            
+        #displays explanations if sizes are incompatible
+        if not allCompatible:
+            screen.blit(text, (centre - (text_width // 2), button_size_y - 50))
         
         # change the screen size if a button is clicked and reload the page
         if button_1000.isClicked():
