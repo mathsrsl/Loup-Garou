@@ -20,6 +20,14 @@ def main(screen, clock, screenSize):
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     display.home.main(screen, clock, screenSize)
+                if event.key == pygame.K_1:
+                    button2.set_text('vroum la voiture')
+                if event.key == pygame.K_2:
+                    button2.set_color_text('#12F148')
+                if event.key == pygame.K_3:
+                    button2.set_clickable(False)
+                if event.key == pygame.K_4:
+                    button2.set_clickable(True)                    
                     
         screen.fill("grey")
 
