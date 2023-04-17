@@ -39,7 +39,43 @@ utils.settings.main(screen)
 '
 </blockquote>
 
-## organisation des fenêtres (dossier display)
+## Organisation des fenêtres (dossier display)
 
 * `main.py` sert à jouer l'annimation de départ et redirige vers `home.py`
 * 
+
+## Utilsation des classes
+<blockquote>
+
+## La classe `Button`
+description
+<blockquote>
+
+## Créer un buouton
+
+<blockquote>
+
+Exemple
+
+```python
+```
+</blockquote>
+
+<blockquote>
+
+## Utiliser les méthodes
+
+<blockquote>
+
+##Méthode de couleur
+
+<blockquote>
+
+Exemple:
+```python
+```
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
