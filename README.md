@@ -46,7 +46,7 @@ utils.settings.main(screen)
 * 
 
 ## Utilsation des classes
-<blockquote style="color: white;">
+<blockquote>
 
 ## La classe `Button`
 La classe `Button` sert à créer des bouton personnalisable, à les afficher et à contrôler s'ils sont cliqués pour intéragir avec le jeu.
