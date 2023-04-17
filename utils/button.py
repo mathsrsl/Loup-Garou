@@ -74,7 +74,10 @@ class Button():
         
         #text
         self.text_font = pygame.font.Font('./assets/font/inter/static/Inter-Black.ttf', self.fontSize)	#Font
-        self.text_surf = self.text_font.render(self.text, True, self.colorText)
+        if self.clickable:
+            self.text_surf = self.text_font.render(self.text, True, self.colorText)
+        else:
+            self.text_surf = self.text_font.render(self.text, True, '#FFFFFF')
         self.text_rect = self.text_surf.get_rect(center=self.top_rect.center)
         
         # elevation logic
@@ -105,7 +108,8 @@ class Button():
         self.mouse = pygame.mouse.get_pos()
         if self.clickable:
             if self.top_rect.collidepoint(self.mouse):
-                self.top_color = self.color[2]                
+                self.top_color = self.color[2]
+                pygame.mouse.set_cursor(*pygame.cursors.diamond)                
                 if pygame.mouse.get_pressed()[0]:
                     self.dynamic_elecation = 0
                     self.pressed = True
@@ -121,6 +125,7 @@ class Button():
             else:
                 self.dynamic_elecation = self.elevation
                 self.top_color = self.color[0]
+                pygame.mouse.set_cursor(*pygame.cursors.tri_left)
     
     def isClicked(self):
         """Check the click of the button
@@ -177,8 +182,11 @@ class Button():
             if self.clickable == True and value == False:
                 self.oldColor = self.colorText
                 self.colorText = '#FFFFFF'
+                pygame.mouse.set_cursor(*pygame.cursors.tri_left)
             elif self.clickable == False and value == True:
                 self.colorText = self.oldColor
+                if self.top_rect.collidepoint(self.mouse):
+                    pygame.mouse.set_cursor(*pygame.cursors.diamond)
             self.clickable = value     
         else:
             raise ValueError("The value must be a boolean")
