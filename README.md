@@ -34,9 +34,7 @@ utils.button.draw(elt)
 
 utils.settings.main(screen)
 ```
-'
 </blockquote>
-'
 </blockquote>
 
 ## Organisation des fenêtres (dossier display)
@@ -104,7 +102,7 @@ Les méthodes serviront pour modifier les propriétés et/ou apparence d'un bout
 
 **Afficher le bouton sur la page**
 
-[description]
+La méthode `draw()` permet d'afficher le bouton sur la page.
 
 Exemple :
 ```python
@@ -115,18 +113,22 @@ button_confirmer.draw(screen)
 
 **Vérifier si le bouton est cliqué**
 
-[description]
+La méthode `isClicked()` retourne `True` si le bouton est cliqué, sinon elle retourne `False`
 
 Exemple :
 ```python
-#code
+button_confirmer.isClicked()
+
+#exemple d'utilisation 
+if button_confirmer.isClicked():
+    print('demande envoyée')
 ```
 </blockquote>
 <blockquote>
 
 **Changer le texte**
 
-Cette méthode, nommée `set_text`, permet de modifier la couleur du texte à la demande. Cela fonctionne uniquement avec les couleurs en hexadécimal `'#FFFFFF'`, ou en rensignant le nom de la couleur en anglais `'white'`. La méthode `rgb()` n'est pas prise en charge.
+La méthode `set_text` sert à modifier le texte présent dans le bouton.
 
 Exemple :
 ```python
@@ -137,22 +139,26 @@ button_confirmer.set_text('envoyé')
 
 **Changer la couleur du texte**
 
-[description]
+La méthode `set_color_text` permet de modifier la couleur du texte. Cela fonctionne uniquement avec les couleurs en hexadécimal `'#FFFFFF'`, ou en rensignant le nom de la couleur en anglais `'white'`. La méthode `rgb()` n'est pas prise en charge.
 
 Exemple :
 ```python
-#code
+button_confirmer.set_color_text('red')
+#ou
+button_confirmer.set_color_text('#FF0000')
 ```
 </blockquote>
 <blockquote>
 
 **Modifier la possibilité de cliquer sur le bouton**
 
-[description]
+La méthode `set_clickable` permet d'autoriser ou non l'utilisation du bouton. Si la valeur est `True`, le bouton sera normal et utilisable. En revanche, si la valeur est `False`, alors le bouton sera grisé et aucune animation ne sera visible lors du clique.
 
 Exemple :
 ```python
-#code
+button_confirmer.set_clickable(True)
+#ou
+button_confirmer.set_clickable(False)
 ```
 </blockquote>
 </blockquote>
