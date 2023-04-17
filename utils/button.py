@@ -1,7 +1,9 @@
 import pygame
 
 """
-reste à faire : la couleur du texte quand cliqué ou après cliqué
+reste à faire : 
+* la couleur du texte quand cliqué ou après cliqué
+* bouton indisponible (grisé)
 """
 
 def buttons_draw(screen, buttonsTab): #draws all the buttons in the list
@@ -13,7 +15,7 @@ def isClicked(screen, button):
     return False
 
 class Button():
-    def __init__(self, text, pos, width, height=70, elevation=5, idColor=0, fontSize=25, border_radius=20, pawDisplaying=True, colorText = '#FFFFFF'):
+    def __init__(self, text, pos, width, height=70, elevation=5, clickable=True, idColor=1, fontSize=25, border_radius=20, pawDisplaying=True, colorText = '#FFFFFF'):
         #Core attributes 
         self.bgColor = [
             ('#000000', '#A7A7A7', '#414141'), 
@@ -22,6 +24,7 @@ class Button():
         ]
         self.pressed = False
         self.click = False
+        self.clickable = clickable
         self.height = height
         self.width = width
         self.elevation = elevation
@@ -35,8 +38,11 @@ class Button():
         self.colorText = colorText
         
         #button color
-        if self.idColor-1 > len(self.bgColor):
+        if self.idColor-1 > len(self.bgColor) and self.clickable == True:
             self.color = self.bgColor[0][0], self.bgColor[0][1], self.bgColor[0][2], 0
+        elif self.clickable == False:
+            self.color = self.bgColor[0][2], self.bgColor[0][1], self.bgColor[0][2], 0
+            
         else: 
             self.color = self.bgColor[idColor][0], self.bgColor[idColor][1], self.bgColor[idColor][2], idColor
         
@@ -82,20 +88,26 @@ class Button():
     def check_click(self):
         self.mouse = pygame.mouse.get_pos()
         # print(mouse) #---------------------------------------
-        if self.top_rect.collidepoint(self.mouse):
-            self.top_color = self.color[2]                
-            if pygame.mouse.get_pressed()[0]:
-                self.dynamic_elecation = 0
-                self.pressed = True
-                self.change_text(f"{self.text}")
+        if self.clickable:
+            if self.top_rect.collidepoint(self.mouse):
+                self.top_color = self.color[2]                
+                if pygame.mouse.get_pressed()[0]:
+                    self.dynamic_elecation = 0
+                    self.pressed = True
+                    self.change_text(f"{self.text}")
+                else:
+                    self.dynamic_elecation = self.elevation
+                    if self.pressed == True: 
+                        # pygame.time.delay(150)
+                        self.pressed = False
+                        self.change_text(self.text)
+                        self.click = True
+            
             else:
                 self.dynamic_elecation = self.elevation
-                if self.pressed == True:
-                    # pygame.time.delay(150)
-                    self.pressed = False
-                    self.change_text(self.text)
-                    self.click = True
-                    
-        else:
-            self.dynamic_elecation = self.elevation
-            self.top_color = self.color[0]
+                self.top_color = self.color[0]
+    
+    def isClicked(self):
+        if self.click == True:
+            self.click = False
+            return True

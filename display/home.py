@@ -33,9 +33,8 @@ def main(screen, clock, screenSize):
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     display.join.main(screen, clock, screenSize)
-            
-        if button1.click: #click button test
-            button1.click = False
+        
+        if button1.isClicked(): #test
             display.join.main(screen, clock, screenSize)
         
         screen.fill("purple")   
