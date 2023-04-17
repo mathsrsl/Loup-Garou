@@ -6,8 +6,8 @@ def main(screen, clock, screenSize):
             
     #test
     buttonsTab = []
-    button1 = utils.button.Button('appuis sur espace',(200, 100), 300, height=40, clickable=False, elevation=7, idColor=2, fontSize=15, border_radius=12, pawDisplaying=False, colorText='#F3A8AF')
-    button2 = utils.button.Button('appuis sur espace',(200, 300), 300, idColor=1)
+    button1 = utils.button.Button('appuis sur espace',(200, 100), 300, height=40, clickable=False, elevation=7, idColor=2, fontSize=15, borderRadius=12, pawDisplaying=False, colorText='#F3A8AF')
+    button2 = utils.button.Button('appuis sur espace',(200, 300), 300)
     buttonsTab.append(button1)
     buttonsTab.append(button2)
 

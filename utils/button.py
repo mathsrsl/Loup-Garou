@@ -6,7 +6,7 @@ def buttons_draw(screen, buttonsTab): #draws all the buttons in the list
 
 class Button():
     """Class allowing to build and display a customizable button"""
-    def __init__(self, text, pos, width, height=70, elevation=5, clickable=True, idColor=1, fontSize=25, border_radius=20, pawDisplaying=True, colorText = '#FFFFFF'):
+    def __init__(self, text, pos, width, height=70, elevation=5, clickable=True, idColor=1, fontSize=25, borderRadius=20, pawDisplaying=True, colorText = '#FFFFFF'):
         """Initializes the values needed to build the button
 
 		Args:
@@ -18,7 +18,7 @@ class Button():
 			clickable (bool, optional): the button is clickable or not. Defaults to True.
 			idColor (int, optional): the color id of the button color group (0: black/white; 1: blue; 2: purple). Defaults to 1.
 			fontSize (int, optional): the font size of the text. Defaults to 25.
-			border_radius (int, optional): the degree of rounding of the button. Defaults to 20.
+			borderRadius (int, optional): the degree of rounding of the button. Defaults to 20.
 			pawDisplaying (bool, optional): display or not a wolf's paw in the lower right corner of the button. Defaults to True.
 			colorText (str, optional): choose the colour of the button text. Defaults to '#FFFFFF'.
 		"""
@@ -41,7 +41,7 @@ class Button():
         self.original_y_pos = pos[1]
         self.idColor = idColor
         self.fontSize = fontSize
-        self.border_radius = border_radius
+        self.border_radius = borderRadius
         self.pawDisplaying = pawDisplaying
         self.colorText = colorText
         self.oldColor = colorText
