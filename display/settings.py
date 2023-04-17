@@ -69,7 +69,7 @@ def main(screen, clock, screenSize):
                 running = False
         
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
+                if event.key == pygame.K_ESCAPE:
                     display.home.main(screen, clock, screenSize)
                     
         screen.fill("black")
