@@ -24,4 +24,4 @@ def zoom(screen, image, position):
     image = pygame.transform.scale(image, (zoomed_out_width, zoomed_out_height))
     screen.blit(image, (zoomed_out_x, zoomed_out_y))
     pygame.display.update()
-    pygame.time.delay(200)
+    pygame.time.delay(150)

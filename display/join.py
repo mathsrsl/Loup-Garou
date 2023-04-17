@@ -5,11 +5,8 @@ def main(screen, clock, screenSize):
     running = True
             
     #test
-    buttonsTab = []
     button1 = utils.button.Button('appuis sur espace',(200, 100), 300, height=40, clickable=False, elevation=7, idColor=2, fontSize=15, borderRadius=12, pawDisplaying=False, colorText='#F3A8AF')
     button2 = utils.button.Button('appuis sur espace',(200, 300), 300)
-    buttonsTab.append(button1)
-    buttonsTab.append(button2)
 
 
     while running:
@@ -36,7 +33,8 @@ def main(screen, clock, screenSize):
         screen.fill("grey")
 
         # RENDER YOUR GAME HERE
-        utils.button.buttons_draw(screen, buttonsTab)
+        button1.draw(screen)
+        button2.draw(screen)
         
         
         pygame.display.flip()

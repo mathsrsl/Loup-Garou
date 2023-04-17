@@ -1,9 +1,5 @@
 import pygame, re
 
-def buttons_draw(screen, buttonsTab): #draws all the buttons in the list
-    for b in buttonsTab:
-        b.draw(screen)
-
 class Button():
     """Class allowing to build and display a customizable button"""
     def __init__(self, text, pos, width, height=70, elevation=5, clickable=True, idColor=1, fontSize=25, borderRadius=20, pawDisplaying=True, colorText = '#FFFFFF'):
@@ -109,7 +105,7 @@ class Button():
         if self.clickable:
             if self.top_rect.collidepoint(self.mouse):
                 self.top_color = self.color[2]
-                pygame.mouse.set_cursor(*pygame.cursors.diamond)                
+                # pygame.mouse.set_cursor(*pygame.cursors.diamond)                
                 if pygame.mouse.get_pressed()[0]:
                     self.dynamic_elecation = 0
                     self.pressed = True
@@ -123,7 +119,7 @@ class Button():
                         self.click = True
             
             else:
-                pygame.mouse.set_cursor(*pygame.cursors.tri_left)
+                # pygame.mouse.set_cursor(*pygame.cursors.tri_left)
                 self.dynamic_elecation = self.elevation
                 self.top_color = self.color[0]
     
@@ -182,11 +178,8 @@ class Button():
             if self.clickable == True and value == False:
                 self.oldColor = self.colorText
                 self.colorText = '#FFFFFF'
-                pygame.mouse.set_cursor(*pygame.cursors.tri_left)
             elif self.clickable == False and value == True:
                 self.colorText = self.oldColor
-                if self.top_rect.collidepoint(self.mouse):
-                    pygame.mouse.set_cursor(*pygame.cursors.diamond)
             self.clickable = value     
         else:
             raise ValueError("The value must be a boolean")
