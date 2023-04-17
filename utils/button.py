@@ -54,6 +54,7 @@ class Button():
 			screen (_pygame.Surface_): an instance of the class `pygame.Surface`
 		"""
         self.screen = screen
+        self.mouse = pygame.mouse.get_pos()
         
         #button color
         if self.idColor-1 > len(self.bgColor) and self.clickable == True:
@@ -105,7 +106,6 @@ class Button():
         Check the click of the button and animate its own when it's pressed.
         Does not require any arguments as it is an internal method.
         """
-        self.mouse = pygame.mouse.get_pos()
         if self.clickable:
             if self.top_rect.collidepoint(self.mouse):
                 self.top_color = self.color[2]
@@ -123,9 +123,9 @@ class Button():
                         self.click = True
             
             else:
+                pygame.mouse.set_cursor(*pygame.cursors.tri_left)
                 self.dynamic_elecation = self.elevation
                 self.top_color = self.color[0]
-                pygame.mouse.set_cursor(*pygame.cursors.tri_left)
     
     def isClicked(self):
         """Check the click of the button
