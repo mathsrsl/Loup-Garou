@@ -63,15 +63,14 @@ def main(screen, clock, screenSize):
     
     #creation of the title
     titleFont = pygame.font.Font('./assets/font/inter/static/Inter-Black.ttf', 30)
-    titleText = titleFont.render("Taille de la fenêtre", True, (194, 194, 194))
+    titleText = titleFont.render("Taille de la fenêtre", True, (255, 255, 255))
     text_width_title = titleText.get_rect().width
     
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-        
-            elif event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     display.home.main(screen, clock, screenSize)
                     
@@ -117,7 +116,7 @@ def main(screen, clock, screenSize):
                 data['settings']['screenSize']['size'] = [1000, 600]
                 if data['settings']['screenSize']['full']:
                     data['settings']['screenSize']['full'] = False
-                json.dump(data,f)
+                json.dump(data,f, indent=4)
             pygame.quit()
             display.settings.main(screen, clock, (screenSize))
         
@@ -126,7 +125,7 @@ def main(screen, clock, screenSize):
                 data['settings']['screenSize']['size'] = [1280, 700]
                 if data['settings']['screenSize']['full']:
                     data['settings']['screenSize']['full'] = False
-                json.dump(data,f)
+                json.dump(data,f, indent=4)
             pygame.quit()
             display.settings.main(screen, clock, (screenSize))
         
@@ -135,14 +134,14 @@ def main(screen, clock, screenSize):
                 data['settings']['screenSize']['size'] = [1920, 1080]
                 if data['settings']['screenSize']['full']:
                     data['settings']['screenSize']['full'] = False
-                json.dump(data,f)
+                json.dump(data,f, indent=4)
             pygame.quit()
             display.settings.main(screen, clock, (screenSize))
             
         if button_fullScreen.isClicked():
             with open("data.json", "w") as f:
                 data['settings']['screenSize']['full'] = True
-                json.dump(data,f)
+                json.dump(data,f, indent=4)
             pygame.quit()
             display.settings.main(screen, clock, (screenSize))
         

@@ -188,6 +188,12 @@ class Button():
         """Changes the the color id
 
 		Args:
-			id (int): id of the pre-existing colour group
+			id (int): id of the pre-existing colour group (0: black/white; 1: blue; 2: purple)
+
+		Raises:
+			ValueError: ID must be an int
 		"""
-        self.idColor = id
+        if isinstance(id, int):
+            self.idColor = id
+        else:
+            raise ValueError("ID must be an int")

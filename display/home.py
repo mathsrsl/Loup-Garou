@@ -59,7 +59,11 @@ def main(screen, clock, screenSize):
         if utils.click.isClicked(settingsButton, (xSettingsButton, ySettingsButton)):
             utils.click.zoom(screen, settingsButton, (xSettingsButton, ySettingsButton))
             display.settings.main(screen, clock, screenSize)
-        
+        #if statistic button is clicked
+        if utils.click.isClicked(statisticButton, (xStatisticButton, yStatisticButton)):
+            utils.click.zoom(screen, statisticButton, (xStatisticButton, yStatisticButton))
+            display.stat.main(screen, clock, screenSize)
+            
         pygame.display.flip()
 
         clock.tick(120)  # limits FPS to 60

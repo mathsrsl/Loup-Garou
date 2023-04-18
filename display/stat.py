@@ -1,31 +1,33 @@
 import pygame, json
 import utils, display
 
-def main(screen, clock, screeSize):
+def main(screen, clock, screenSize):
     running = True
-
-    #création et gestion des boutons 
-    # --------------- a mettre dans utils et __init__ --------------
-    def buttons_draw(screen):
-        for b in buttons:
-            b.draw(screen)
-            
-
-    buttons = []
-    button1 = utils.button.Button('appuis sur espace', 300, 40, (150, 100), 5)
-    buttons.append(button1)
-
+    
+    #creation of the title
+    titleFont = pygame.font.Font('./assets/font/inter/static/Inter-Black.ttf', 30)
+    titleText = titleFont.render("Your statistics", True, (255, 255, 255))
+    text_width_title = titleText.get_rect().width
+    
+    #creation of the text
+    textFont = pygame.font.Font('./assets/font/inter/static/Inter-Regular.ttf', 20)
+    nbWinText = textFont.render("Number of wins", True, (255, 255, 255))
+    nbGameText = textFont.render("Number of games played", True, (255, 255, 255))
+    nbWolfText = textFont.render("Number of times one is a werewolf", True, (255, 255, 255))
+    nbVillagerText = textFont.render("Number of times being a villager", True, (255, 255, 255))
+    nbWitchText = textFont.render("Number of times being a witch", True, (255, 255, 255))
 
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    display.home.main(screen, clock, screenSize)
 
-        screen.fill("purple")
+        screen.fill("black")
 
-        # RENDER YOUR GAME HERE
-        buttons_draw(screen)
-
+        screen.blit(titleText, (screenSize[0]//2 - (text_width_title // 2), 150))
 
         pygame.display.flip()
 
