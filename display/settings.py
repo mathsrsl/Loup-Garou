@@ -3,12 +3,10 @@ import utils, display
 from screeninfo import get_monitors
 
 """
-bouton back/echap/retour
-bouton 1000x600
-bouton 1280x720
-bouton 1920x1080
-bouton fullscreen
-si taille inférieur ou egale grisé bouton et écrire message
+reste à faire : 
+* bouton back/echap/retour/home
+* ajouter un fond
+* mettre blur ou filtre d'assombrissement sur le fond
 """
 
 def main(screen, clock, screenSize):

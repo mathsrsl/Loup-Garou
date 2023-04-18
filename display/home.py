@@ -15,9 +15,9 @@ def main(screen, clock, screenSize):
     
     #buttons
     settingsButton = pygame.image.load('assets/image/icon/settings.png')
-    statisticButton = pygame.image.load('assets/image/icon/stat.png')
     xSettingsButton = screenSize[0] - settingsButton.get_width() -20
     ySettingsButton = screenSize[1] - (screenSize[1] - 20)
+    statisticButton = pygame.image.load('assets/image/icon/stat.png')
     xStatisticButton = xSettingsButton - settingsButton.get_width() - 20
     yStatisticButton = ySettingsButton
         
