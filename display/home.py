@@ -1,6 +1,14 @@
 import pygame, time
 import utils, display
 
+""" 
+reste a faire:
+* mettre fond
+* mettre blur ou filtre d'assombrissement sur le fond
+* bouton echap
+* bouton du jeu ...
+"""
+
 def main(screen, clock, screenSize):
     running = True
 
