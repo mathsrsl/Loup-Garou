@@ -11,10 +11,6 @@ reste a faire:
 
 def main(screen, clock, screenSize):
     running = True
-
-    #test-----]
-    button1 = utils.button.Button('appuis sur espace', (300, 200), 300)
-    #---------
     
     #logo
     logo = pygame.image.load('assets/image/logo_0.9.png')
@@ -25,9 +21,13 @@ def main(screen, clock, screenSize):
     settingsButton = pygame.image.load('assets/image/icon/settings.png')
     xSettingsButton = screenSize[0] - settingsButton.get_width() -20
     ySettingsButton = screenSize[1] - (screenSize[1] - 20)
+    
     statisticButton = pygame.image.load('assets/image/icon/stat.png')
     xStatisticButton = xSettingsButton - settingsButton.get_width() - 20
     yStatisticButton = ySettingsButton
+    
+    exitButton = pygame.image.load('assets/image/icon/exit.png')
+    positionExitButton = (20, screenSize[1] - (screenSize[1] - 20))
         
     while running:
         mouse = pygame.mouse.get_pos()
@@ -35,34 +35,27 @@ def main(screen, clock, screenSize):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-
-        #test ----
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    display.join.main(screen, clock, screenSize)
-        
-        if button1.isClicked():
-            display.join.main(screen, clock, screenSize)
-        # ----
         
         screen.fill("purple")   
         
         screen.blit(logo, (xLogo, yLogo)) #affichage du logo
         
-        button1.draw(screen) #test
-        
-        screen.blit(settingsButton, (xSettingsButton, ySettingsButton)) #affichage du bouton paramètre
-        screen.blit(statisticButton, (xStatisticButton, yStatisticButton)) #affichage du bouton des statistiques
-        #affichage des boutons de jeu
+        #buttons display
+        screen.blit(settingsButton, (xSettingsButton, ySettingsButton))
+        screen.blit(statisticButton, (xStatisticButton, yStatisticButton))
+        screen.blit(exitButton, positionExitButton)
+            #affichage des boutons de jeu ------
 
-        #if settings button is clicked
+        #buttons clicked
         if utils.click.isClicked(settingsButton, (xSettingsButton, ySettingsButton)):
             utils.click.zoom(screen, settingsButton, (xSettingsButton, ySettingsButton))
             display.settings.main(screen, clock, screenSize)
-        #if statistic button is clicked
         if utils.click.isClicked(statisticButton, (xStatisticButton, yStatisticButton)):
             utils.click.zoom(screen, statisticButton, (xStatisticButton, yStatisticButton))
             display.stat.main(screen, clock, screenSize)
+        if utils.click.isClicked(exitButton, positionExitButton):
+            utils.click.zoom(screen, exitButton, positionExitButton)
+            running = False
             
         pygame.display.flip()
 
