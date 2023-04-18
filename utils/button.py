@@ -47,7 +47,7 @@ class Button():
         """build and display the button
 
 		Args:
-			screen (_pygame.Surface_): an instance of the class `pygame.Surface`
+			screen (pygame.Surface): an instance of the class `pygame.Surface`
 		"""
         self.screen = screen
         self.mouse = pygame.mouse.get_pos()
@@ -70,7 +70,7 @@ class Button():
         self.bottom_color = self.color[1]
         
         #text
-        self.text_font = pygame.font.Font('./assets/font/inter/static/Inter-Black.ttf', self.fontSize)	#Font
+        self.text_font = pygame.font.Font('./assets/font/inter/static/Inter-Bold.ttf', self.fontSize)	#Font
         if self.clickable:
             self.text_surf = self.text_font.render(self.text, True, self.colorText)
         else:
@@ -107,7 +107,7 @@ class Button():
                 self.top_color = self.color[2]
                 # pygame.mouse.set_cursor(*pygame.cursors.diamond)                
                 if pygame.mouse.get_pressed()[0]:
-                    self.dynamic_elecation = 0
+                    self.dynamic_elecation = 2
                     self.pressed = True
                     self.text_rect = self.text_surf.get_rect(center=self.top_rect.center)
                 else:
@@ -127,7 +127,7 @@ class Button():
         """Check the click of the button
 
 		Returns:
-			_bool_: returns True if the button was pressed
+			bool: returns True if the button was pressed
 		"""
         if self.click == True:
             self.click = False

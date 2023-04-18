@@ -59,9 +59,14 @@ def main(screen, clock, screenSize):
     
     # creation of a text in case of non conformity of the screen
     allCompatible = True
-    font = pygame.font.Font('./assets/font/inter/static/Inter-Regular.ttf', 15)
-    text = font.render("(Votre écran n'est pas compatible avec les dimensions inscrites sur les boutons grisés)", True, (194, 194, 194))
-    text_width = text.get_rect().width
+    infoFont = pygame.font.Font('./assets/font/inter/static/Inter-Regular.ttf', 15)
+    infoText = infoFont.render("(Votre écran n'est pas compatible avec les dimensions inscrites sur les boutons grisés)", True, (194, 194, 194))
+    text_width_info = infoText.get_rect().width
+    
+    #creation of the title
+    titleFont = pygame.font.Font('./assets/font/inter/static/Inter-Black.ttf', 30)
+    titleText = titleFont.render("Taille de la fenêtre", True, (194, 194, 194))
+    text_width_title = titleText.get_rect().width
     
     while running:
         for event in pygame.event.get():
@@ -73,6 +78,9 @@ def main(screen, clock, screenSize):
                     display.home.main(screen, clock, screenSize)
                     
         screen.fill("black")
+        
+        #display title
+        screen.blit(titleText, (centre - (text_width_title // 2), button_size_y - 150))
         
         #buttons display
         button_1000.draw(screen)
@@ -103,7 +111,7 @@ def main(screen, clock, screenSize):
             
         #displays explanations if sizes are incompatible
         if not allCompatible:
-            screen.blit(text, (centre - (text_width // 2), button_size_y - 50))
+            screen.blit(infoText, (centre - (text_width_info // 2), button_size_y - 50))
         
         # change the screen size if a button is clicked and reload the page
         if button_1000.isClicked():
