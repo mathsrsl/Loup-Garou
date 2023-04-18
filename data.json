@@ -10,11 +10,16 @@
     },
     "game": {
         "stat": {
-            "nbWin": 0,
+            "nbWin": 69,
             "nbGame": 0,
             "nbWolf": 0,
             "nbVillager": 0,
-            "nbWitch": 0
+            "nbWitch": 0,
+            "timePlayed": {
+                "seconds": 0,
+                "minutes": 0,
+                "hours": 0
+            }
         }
     }
 }

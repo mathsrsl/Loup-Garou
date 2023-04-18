@@ -45,13 +45,16 @@ def main(screen, clock, screenSize):
     button_1920_x = centre + 150
     button_fullScreen_x = centre - 100
     button_size_y = screenSize[1] // 2
-    button_fullScreen_y = screenSize[1] // 1.5
+    positionHomeButton = (20, screenSize[1] - (screenSize[1] - 20))
+    
+    #creation of home button
+    homeButton = pygame.image.load('assets/image/icon/home.png')
     
     # creation of buttons
     button_1000 = utils.button.Button("1000x600", (button_1000_x, button_size_y), 200)
     button_1280 = utils.button.Button("1280x720", (button_1280_x, button_size_y), 200)
     button_1920 = utils.button.Button("1920x1080", (button_1920_x, button_size_y), 200)
-    button_fullScreen = utils.button.Button("Full Screen", (button_fullScreen_x, button_fullScreen_y), 200)
+    button_fullScreen = utils.button.Button("Full Screen", (button_fullScreen_x, button_size_y + 100), 200)
     
     button_back = pygame.image.load('assets/image/icon/settings.png')
     
@@ -61,10 +64,13 @@ def main(screen, clock, screenSize):
     infoText = infoFont.render("(Votre écran n'est pas compatible avec les dimensions inscrites sur les boutons grisés)", True, (194, 194, 194))
     text_width_info = infoText.get_rect().width
     
-    #creation of the title
-    titleFont = pygame.font.Font('./assets/font/inter/static/Inter-Black.ttf', 30)
-    titleText = titleFont.render("Taille de la fenêtre", True, (255, 255, 255))
-    text_width_title = titleText.get_rect().width
+    #creation of titles
+    titleSettingsFont = pygame.font.Font('./assets/font/inter/static/Inter-Black.ttf', 35)
+    titleSettingsText = titleSettingsFont.render("Paramètes", True, (255, 255, 255))
+    titleDisplayFont = pygame.font.Font('./assets/font/inter/static/Inter-Black.ttf', 26)
+    titleDisplayText = titleDisplayFont.render("Taille de la fenêtre", True, (255, 255, 255))
+    text_width_title_settings = titleSettingsText.get_rect().width
+    text_width_title_display = titleDisplayText.get_rect().width
     
     while running:
         for event in pygame.event.get():
@@ -76,14 +82,16 @@ def main(screen, clock, screenSize):
                     
         screen.fill("black")
         
-        #display title
-        screen.blit(titleText, (centre - (text_width_title // 2), button_size_y - 150))
+        #display titles
+        screen.blit(titleSettingsText, (centre - (text_width_title_settings // 2), 25))
+        screen.blit(titleDisplayText, (centre - (text_width_title_display // 2), button_size_y - 100))
         
         #buttons display
         button_1000.draw(screen)
         button_1280.draw(screen)
         button_1920.draw(screen)
         button_fullScreen.draw(screen)
+        screen.blit(homeButton, positionHomeButton)
         
         # set the button for the current screen size in purple
         if isFullScreen:
@@ -110,7 +118,7 @@ def main(screen, clock, screenSize):
         if not allCompatible:
             screen.blit(infoText, (centre - (text_width_info // 2), button_size_y - 50))
         
-        # change the screen size if a button is clicked and reload the page
+        # buttons clicked
         if button_1000.isClicked():
             with open("data.json", "w") as f:
                 data['settings']['screenSize']['size'] = [1000, 600]
@@ -144,7 +152,10 @@ def main(screen, clock, screenSize):
                 json.dump(data,f, indent=4)
             pygame.quit()
             display.settings.main(screen, clock, (screenSize))
-        
+            
+        if utils.click.isClicked(homeButton, positionHomeButton):
+            utils.click.zoom(screen, homeButton, positionHomeButton)
+            display.home.main(screen, clock, screenSize)
         
         pygame.display.flip()
 

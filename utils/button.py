@@ -91,7 +91,7 @@ class Button():
         
         if self.pawDisplaying:
             self.pawImage = pygame.image.load(f'./assets/image/icon/patte_{self.color[3]}.png')
-            self.xPositionImage = self.original_x_pos + self.width - self.pawImage.get_size()[0] - self.dynamic_elecation
+            self.xPositionImage = self.original_x_pos + self.width - self.pawImage.get_size()[0] - (self.dynamic_elecation // 2)
             self.yPositionImage = self.original_y_pos + self.height - self.pawImage.get_size()[1] - self.dynamic_elecation
             self.screen.blit(self.pawImage, (self.xPositionImage, self.yPositionImage))
         
